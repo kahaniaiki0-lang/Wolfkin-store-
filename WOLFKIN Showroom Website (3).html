@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WOLFKIN | Custom Apparel & Branding Showroom</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Montserrat & Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        wolf: {
+                            black: '#090a0f',
+                            card: '#12141d',
+                            border: '#232738',
+                            red: '#FF1E27',
+                            glow: '#FFFFFF',
+                            accent: '#E60000'
+                        }
+                    },
+                    fontFamily: {
+                        title: ['Montserrat', 'sans-serif'],
+                        body: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #090a0f;
+            color: #e2e8f0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* WOLFKIN Glowing Logo Styles */
+        .neon-wolf-symbol {
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
+        }
+
+        .neon-text-red {
+            text-shadow: 0 0 10px rgba(255, 30, 39, 0.7), 0 0 20px rgba(255, 30, 39, 0.4);
+        }
+
+        .glass-card {
+            background: rgba(18, 20, 29, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(255, 30, 39, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(255, 30, 39, 0.2);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090a0f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #232738;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF1E27;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col justify-between selection:bg-wolf-red selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-gradient-to-r from-wolf-red via-red-700 to-wolf-red text-white text-xs font-semibold py-2 px-4 text-center tracking-wide flex justify-between items-center px-6">
+        <span class="hidden md:inline"><i class="fa-solid fa-fire mr-1"></i> Custom Branding & Apparel Printing Hub near KMC Hospital</span>
+        <div class="mx-auto md:mx-0 flex items-center gap-4">
+            <span><i class="fa-solid fa-user-tie mr-1"></i> Owner: <strong>Anurag Yadav</strong></span>
+            <span>|</span>
+            <a href="https://api.whatsapp.com/send?phone=919278373472&text=Hello%20WOLFKIN,%20I%20have%20an%20inquiry." target="_blank" class="hover:underline flex items-center gap-1 font-bold">
+                <i class="fa-brands fa-whatsapp text-lg"></i> +91 92783 73472
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="sticky top-0 z-40 bg-wolf-black/90 backdrop-blur-md border-b border-wolf-border transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Brand Logo matching picture -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="relative w-10 h-10 flex items-center justify-center">
+                    <svg class="w-10 h-10 neon-wolf-symbol transition-transform duration-300 group-hover:scale-105" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Wolf Head 'V' Geometric Icon -->
+                        <path d="M 12 25 L 34 38 L 44 65 L 50 75 L 56 65 L 66 38 L 88 25 L 75 52 L 50 85 L 25 52 Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round"/>
+                        <path d="M 34 38 L 44 28 L 50 42 L 56 28 L 66 38" fill="none" stroke="#090a0f" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-title font-black text-2xl tracking-widest text-wolf-red neon-text-red leading-none">WOLFKIN</span>
+                    <span class="text-[9px] tracking-widest text-gray-400 font-semibold uppercase">Apparel & Printing</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center space-x-8 font-medium text-sm text-gray-300">
+                <a href="#home" class="hover:text-wolf-red transition-colors">Home</a>
+                <a href="#services" class="hover:text-wolf-red transition-colors">Services</a>
+                <a href="#catalog" class="hover:text-wolf-red transition-colors">Products</a>
+                <a href="#estimator" class="hover:text-wolf-red transition-colors">Price Estimator</a>
+                <a href="#contact" class="hover:text-wolf-red transition-colors">Showroom Info</a>
+            </nav>
+
+            <!-- Action Buttons -->
+            <div class="flex items-center space-x-3">
+                <!-- Cart Button -->
+                <button onclick="toggleCart()" class="relative p-2.5 rounded-xl bg-wolf-card border border-wolf-border text-gray-200 hover:text-white hover:border-wolf-red transition-all">
+                    <i class="fa-solid fa-shopping-bag text-lg"></i>
+                    <span id="cartCount" class="absolute -top-1 -right-1 bg-wolf-red text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center border-2 border-wolf-black">0</span>
+                </button>
+
+                <!-- WhatsApp Quick Button -->
+                <a href="https://api.whatsapp.com/send?phone=919278373472&text=Hello%20WOLFKIN,%20I%20have%20an%20inquiry%20regarding%20custom%20printing." target="_blank" class="hidden sm:flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs uppercase tracking-wider px-4 py-2.5 rounded-xl transition-all shadow-lg shadow-emerald-900/30">
+                    <i class="fa-brands fa-whatsapp text-base"></i> Order Now
+                </a>
+
+                <!-- Admin Access Toggle -->
+                <button onclick="openAdminModal()" class="p-2.5 rounded-xl bg-wolf-card border border-wolf-border text-gray-400 hover:text-wolf-red hover:border-wolf-red transition-all" title="Owner Admin Login">
+                    <i class="fa-solid fa-lock"></i>
+                </button>
+
+                <!-- Mobile Hamburger -->
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl bg-wolf-card border border-wolf-border text-gray-300">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-wolf-card border-b border-wolf-border px-6 py-4 space-y-3">
+            <a href="#home" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-wolf-red font-medium">Home</a>
+            <a href="#services" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-wolf-red font-medium">Services</a>
+            <a href="#catalog" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-wolf-red font-medium">Products</a>
+            <a href="#estimator" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-wolf-red font-medium">Price Estimator</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-wolf-red font-medium">Showroom Info</a>
+            <a href="https://api.whatsapp.com/send?phone=919278373472&text=Hello%20WOLFKIN,%20I%20want%20to%20order." target="_blank" class="w-full flex items-center justify-center gap-2 bg-emerald-600 text-white py-2.5 rounded-xl font-bold">
+                <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+            <a href="tel:+919278373472" class="w-full flex items-center justify-center gap-2 bg-wolf-card border border-wolf-border text-white py-2 rounded-xl font-bold">
+                <i class="fa-solid fa-phone text-wolf-red"></i> Call Anurag Yadav
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content Body -->
+    <main class="flex-grow">
+        
+        <!-- HERO SECTION -->
+        <section id="home" class="relative py-20 lg:py-28 overflow-hidden border-b border-wolf-border/40">
+            <!-- Background Radial Glow -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-wolf-red/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <div class="space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-wolf-red/10 border border-wolf-red/30 text-wolf-red text-xs font-semibold tracking-wider uppercase">
+                        <i class="fa-solid fa-bolt"></i> Premier Printing & Brand Studio
+                    </div>
+                    <h1 class="font-title text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-none">
+                        WE PRINT YOUR <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-wolf-red via-red-500 to-white">BRAND IDENTITY</span>
+                    </h1>
+                    <p class="text-gray-400 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-normal">
+                        High-quality customized T-Shirts, Hoodies, Corporate Uniforms, Caps, and DTF/Screen Printing. Visit <strong class="text-white">WOLFKIN Showroom</strong> at Mahuawa Dhala (Near KMC Hospital).
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+                        <a href="#catalog" class="px-8 py-4 rounded-xl bg-wolf-red hover:bg-red-700 text-white font-bold tracking-wide shadow-lg shadow-wolf-red/30 transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-shirt"></i> Explore Products
+                        </a>
+                        <a href="#estimator" class="px-8 py-4 rounded-xl bg-wolf-card border border-wolf-border hover:border-wolf-red text-white font-bold tracking-wide transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-calculator"></i> Calculate Estimate
+                        </a>
+                    </div>
+                    
+                    <!-- Quick Badges -->
+                    <div class="pt-6 grid grid-cols-3 gap-4 border-t border-wolf-border/60">
+                        <div>
+                            <h4 class="font-bold text-xl text-white">100%</h4>
+                            <p class="text-xs text-gray-400">Quality Fabrics</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-xl text-white">Fast</h4>
+                            <p class="text-xs text-gray-400">Bulk Delivery</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-xl text-white">Custom</h4>
+                            <p class="text-xs text-gray-400">DTF & Embroidery</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Graphic Display -->
+                <div class="relative flex justify-center">
+                    <div class="w-full max-w-md p-6 glass-card rounded-3xl relative overflow-hidden text-center group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-wolf-red/20 to-transparent opacity-30"></div>
+                        
+                        <!-- Glowing Emblem Card -->
+                        <div class="bg-wolf-black p-8 rounded-2xl border border-wolf-border/80 relative z-10 flex flex-col items-center shadow-2xl">
+                            <svg class="w-32 h-32 neon-wolf-symbol mb-4" viewBox="0 0 100 100" fill="none">
+                                <path d="M 12 25 L 34 38 L 44 65 L 50 75 L 56 65 L 66 38 L 88 25 L 75 52 L 50 85 L 25 52 Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round"/>
+                                <path d="M 34 38 L 44 28 L 50 42 L 56 28 L 66 38" fill="none" stroke="#090a0f" stroke-width="4" stroke-linecap="round"/>
+                            </svg>
+                            <h3 class="font-title font-black text-3xl tracking-widest text-wolf-red neon-text-red">WOLFKIN</h3>
+                            <p class="text-xs text-gray-400 uppercase tracking-widest mt-1">Custom Clothes & Printing Studio</p>
+
+                            <div class="mt-6 w-full bg-wolf-card p-3 rounded-xl text-xs text-left border border-wolf-border space-y-1">
+                                <p class="text-gray-300"><i class="fa-solid fa-location-dot text-wolf-red mr-2"></i> Mahuawa Dhala, Near KMC Hospital</p>
+                                <p class="text-gray-300"><i class="fa-solid fa-user-check text-emerald-400 mr-2"></i> Owner: Anurag Yadav</p>
+                                <p class="text-gray-300"><i class="fa-solid fa-phone text-blue-400 mr-2"></i> <a href="tel:+919278373472" class="hover:underline font-bold text-white">+91 92783 73472</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SERVICES OFFERED SECTION -->
+        <section id="services" class="py-16 bg-wolf-black/50 border-b border-wolf-border/40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <h2 class="font-title text-3xl font-extrabold text-white uppercase tracking-wider">Our Services</h2>
+                    <p class="text-gray-400 text-sm mt-2">Professional clothing customization and high-definition printing solutions.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Service 1 -->
+                    <div class="glass-card p-6 rounded-2xl space-y-3 transition-transform duration-300 hover:-translate-y-1">
+                        <div class="w-12 h-12 rounded-xl bg-wolf-red/10 border border-wolf-red/30 flex items-center justify-center text-wolf-red text-xl font-bold">
+                            <i class="fa-solid fa-shirt"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-white">DTF & Screen Printing</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed">Long-lasting vibrant direct-to-film prints for custom quotes, artwork, and logos on all garments.</p>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="glass-card p-6 rounded-2xl space-y-3 transition-transform duration-300 hover:-translate-y-1">
+                        <div class="w-12 h-12 rounded-xl bg-wolf-red/10 border border-wolf-red/30 flex items-center justify-center text-wolf-red text-xl font-bold">
+                            <i class="fa-solid fa-building-user"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-white">Corporate Branding</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed">Custom company Polo T-Shirts, ID lanyards, staff uniforms with high precision logo placement.</p>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="glass-card p-6 rounded-2xl space-y-3 transition-transform duration-300 hover:-translate-y-1">
+                        <div class="w-12 h-12 rounded-xl bg-wolf-red/10 border border-wolf-red/30 flex items-center justify-center text-wolf-red text-xl font-bold">
+                            <i class="fa-solid fa-vest text-lg"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-white">Uniforms & Hoodies</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed">School, hospital, restaurant uniforms & winter oversized hoodies tailored to perfection.</p>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="glass-card p-6 rounded-2xl space-y-3 transition-transform duration-300 hover:-translate-y-1">
+                        <div class="w-12 h-12 rounded-xl bg-wolf-red/10 border border-wolf-red/30 flex items-center justify-center text-wolf-red text-xl font-bold">
+                            <i class="fa-solid fa-hat-cowboy"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-white">Caps & Accessories</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed">Custom embroidered caps, bags, keychains, and promotional event merchandise.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCT CATALOG SECTION (Customer View) -->
+        <section id="catalog" class="py-16 border-b border-wolf-border/40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                    <div>
+                        <h2 class="font-title text-3xl font-extrabold text-white uppercase tracking-wider">Product Catalog</h2>
+                        <p class="text-gray-400 text-sm mt-1">Select products to customize or order directly via WhatsApp.</p>
+                    </div>
+
+                    <!-- Filter Buttons -->
+                    <div id="categoryFilter" class="flex flex-wrap gap-2">
+                        <button onclick="filterCategory('All')" class="filter-btn active bg-wolf-red text-white text-xs font-semibold px-4 py-2 rounded-xl transition-all">All</button>
+                        <button onclick="filterCategory('T-Shirts')" class="filter-btn bg-wolf-card border border-wolf-border text-gray-300 hover:text-white text-xs font-semibold px-4 py-2 rounded-xl transition-all">T-Shirts</button>
+                        <button onclick="filterCategory('Hoodies')" class="filter-btn bg-wolf-card border border-wolf-border text-gray-300 hover:text-white text-xs font-semibold px-4 py-2 rounded-xl transition-all">Hoodies</button>
+                        <button onclick="filterCategory('Uniforms')" class="filter-btn bg-wolf-card border border-wolf-border text-gray-300 hover:text-white text-xs font-semibold px-4 py-2 rounded-xl transition-all">Uniforms</button>
+                    </div>
+                </div>
+
+                <!-- Grid Products -->
+                <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <!-- Rendered dynamically via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- INSTANT CUSTOM PRINTING ESTIMATOR -->
+        <section id="estimator" class="py-16 bg-wolf-black/70 border-b border-wolf-border/40">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="glass-card p-6 sm:p-10 rounded-3xl relative overflow-hidden">
+                    <div class="absolute -top-12 -right-12 w-48 h-48 bg-wolf-red/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div class="text-center max-w-xl mx-auto mb-8">
+                        <span class="text-wolf-red font-semibold text-xs uppercase tracking-widest"><i class="fa-solid fa-calculator"></i> Quick Quote</span>
+                        <h2 class="font-title text-3xl font-extrabold text-white uppercase mt-1">Printing Cost Estimator</h2>
+                        <p class="text-gray-400 text-xs sm:text-sm">Calculate custom order cost based on quantity and print style.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Garment Selection -->
+                        <div class="space-y-2">
+                            <label class="text-xs font-semibold text-gray-300 uppercase tracking-wide">1. Garment Type</label>
+                            <select id="calcGarment" onchange="calculateEstimate()" class="w-full bg-wolf-black border border-wolf-border rounded-xl p-3 text-sm text-white focus:outline-none focus:border-wolf-red">
+                                <option value="180">Standard Cotton T-Shirt (₹180)</option>
+                                <option value="250">Premium Polo T-Shirt (₹250)</option>
+                                <option value="550">Heavyweight Hoodie (₹550)</option>
+                                <option value="350">Custom Oversized Tee (₹350)</option>
+                                <option value="120">Promotional Cap (₹120)</option>
+                            </select>
+                        </div>
+
+                        <!-- Printing Method -->
+                        <div class="space-y-2">
+                            <label class="text-xs font-semibold text-gray-300 uppercase tracking-wide">2. Printing Method</label>
+                            <select id="calcMethod" onchange="calculateEstimate()" class="w-full bg-wolf-black border border-wolf-border rounded-xl p-3 text-sm text-white focus:outline-none focus:border-wolf-red">
+                                <option value="70">HD DTF Full Color Print (+₹70)</option>
+                                <option value="40">Single Color Screen Print (+₹40)</option>
+                                <option value="100">Premium Embroidery (+₹100)</option>
+                            </select>
+                        </div>
+
+                        <!-- Print Position -->
+                        <div class="space-y-2">
+                            <label class="text-xs font-semibold text-gray-300 uppercase tracking-wide">3. Print Locations</label>
+                            <select id="calcSides" onchange="calculateEstimate()" class="w-full bg-wolf-black border border-wolf-border rounded-xl p-3 text-sm text-white focus:outline-none focus:border-wolf-red">
+                                <option value="1">Front Side Only</option>
+                                <option value="1.7">Front + Back Both</option>
+                                <option value="2.2">Front + Back + Sleeves</option>
+                            </select>
+                        </div>
+
+                        <!-- Quantity Slider/Input -->
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-xs font-semibold text-gray-300 uppercase tracking-wide">
+                                <span>4. Quantity (Pcs)</span>
+                                <span id="qtyVal" class="text-wolf-red font-bold">10 Pcs</span>
+                            </div>
+                            <input type="range" id="calcQty" min="1" max="500" value="10" oninput="calculateEstimate()" class="w-full accent-wolf-red cursor-pointer">
+                            <div class="flex justify-between text-[10px] text-gray-500 font-mono">
+                                <span>1 pc</span>
+                                <span>50 pcs</span>
+                                <span>500 pcs</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Estimate Result Card -->
+                    <div class="mt-8 pt-6 border-t border-wolf-border flex flex-col sm:flex-row items-center justify-between gap-4 bg-wolf-black/60 p-5 rounded-2xl">
+                        <div>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider">Estimated Total Cost</p>
+                            <h3 id="totalEstimate" class="font-title text-3xl font-black text-white">₹2,500 <span class="text-xs font-normal text-gray-400">(₹250/pc)</span></h3>
+                        </div>
+
+                        <button onclick="sendEstimateToWhatsApp()" class="w-full sm:w-auto px-6 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> Send Quote To WhatsApp
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LOCATION & SHOWROOM INFO SECTION -->
+        <section id="contact" class="py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
+                    
+                    <!-- Contact Details -->
+                    <div class="glass-card p-8 rounded-3xl space-y-6 flex flex-col justify-between">
+                        <div>
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-wolf-red/10 text-wolf-red text-xs font-semibold mb-3">
+                                <i class="fa-solid fa-shop"></i> Visit Our Showroom
+                            </div>
+                            <h2 class="font-title text-3xl font-extrabold text-white uppercase">WOLFKIN SHOWROOM</h2>
+                            <p class="text-gray-400 text-sm mt-2">Get your custom clothing designs sampled, previewed, and printed live in store.</p>
+                        </div>
+
+                        <div class="space-y-4 py-2">
+                            <div class="flex items-start gap-4 p-4 rounded-2xl bg-wolf-black/50 border border-wolf-border">
+                                <div class="w-10 h-10 rounded-xl bg-wolf-red/10 text-wolf-red flex items-center justify-center font-bold shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-semibold uppercase text-gray-400">Showroom Address</h4>
+                                    <p class="text-sm font-medium text-white">Near KMC Hospital, Mahuawa Dhala, UP, India</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4 p-4 rounded-2xl bg-wolf-black/50 border border-wolf-border">
+                                <div class="w-10 h-10 rounded-xl bg-wolf-red/10 text-wolf-red flex items-center justify-center font-bold shrink-0">
+                                    <i class="fa-solid fa-user"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-semibold uppercase text-gray-400">Showroom Owner</h4>
+                                    <p class="text-sm font-medium text-white">Anurag Yadav</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4 p-4 rounded-2xl bg-wolf-black/50 border border-wolf-border">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold shrink-0">
+                                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-semibold uppercase text-gray-400">Call / WhatsApp Inquiry</h4>
+                                    <div class="flex gap-4 mt-1">
+                                        <a href="https://api.whatsapp.com/send?phone=919278373472&text=Hello%20WOLFKIN,%20I%20have%20a%20query." target="_blank" class="text-sm font-bold text-emerald-400 hover:underline flex items-center gap-1">
+                                            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                                        </a>
+                                        <a href="tel:+919278373472" class="text-sm font-bold text-blue-400 hover:underline flex items-center gap-1">
+                                            <i class="fa-solid fa-phone"></i> Call Direct
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <a href="https://api.whatsapp.com/send?phone=919278373472&text=Hello%20Anurag%20Ji,%20I%20want%20to%20visit%20WOLFKIN%20showroom." target="_blank" class="py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-center text-xs uppercase tracking-wider block transition-all">
+                                <i class="fa-brands fa-whatsapp text-base mr-1"></i> WhatsApp Message
+                            </a>
+                            <a href="tel:+919278373472" class="py-3.5 bg-wolf-red hover:bg-red-700 text-white font-bold rounded-xl text-center text-xs uppercase tracking-wider block transition-all">
+                                <i class="fa-solid fa-phone text-xs mr-1"></i> Direct Call Owner
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-wolf-black border-t border-wolf-border py-8 text-center text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <span class="font-title font-black text-wolf-red tracking-widest text-lg">WOLFKIN</span>
+                <span>© <span id="year"></span> All Rights Reserved.</span>
+            </div>
+            <p>Owned by <strong class="text-gray-300">Anurag Yadav</strong> | Phone: +91 92783 73472</p>
+            <button onclick="openAdminModal()" class="text-gray-600 hover:text-wolf-red transition-colors flex items-center gap-1">
+                <i class="fa-solid fa-key text-[10px]"></i> Owner Login
+            </button>
+        </div>
+    </footer>
+
+    <!-- SHOPPING CART SLIDE-OVER -->
+    <div id="cartModal" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex justify-end">
+        <div class="w-full max-w-md bg-wolf-card border-l border-wolf-border h-full flex flex-col justify-between p-6">
+            <div>
+                <div class="flex items-center justify-between pb-4 border-b border-wolf-border">
+                    <h3 class="font-title text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-bag-shopping text-wolf-red"></i> Your Order Cart
+                    </h3>
+                    <button onclick="toggleCart()" class="text-gray-400 hover:text-white p-2 text-lg">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <!-- Cart Items List -->
+                <div id="cartItemsContainer" class="py-4 space-y-4 max-h-[60vh] overflow-y-auto">
+                    <!-- Dynamic Cart Items -->
+                </div>
+            </div>
+
+            <!-- Cart Footer -->
+            <div class="pt-4 border-t border-wolf-border space-y-4">
+                <div class="flex justify-between items-center text-lg font-bold">
+                    <span class="text-gray-300">Estimated Total:</span>
+                    <span id="cartTotal" class="text-wolf-red font-title">₹0</span>
+                </div>
+                <button onclick="checkoutWhatsApp()" class="w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-center text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/30">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Send Order to WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PASSWORD-PROTECTED ADMIN MODAL (PIN: 5911) -->
+    <div id="adminModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-wolf-card border border-wolf-border w-full max-w-xl rounded-3xl p-6 sm:p-8 space-y-6 relative max-h-[90vh] overflow-y-auto">
+            
+            <button onclick="closeAdminModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Step 1: PIN Password Prompt -->
+            <div id="adminAuthBox" class="space-y-4 text-center py-6">
+                <div class="w-16 h-16 rounded-2xl bg-wolf-red/10 border border-wolf-red/30 text-wolf-red flex items-center justify-center text-2xl mx-auto">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3 class="font-title text-2xl font-bold text-white">Owner Portal Access</h3>
+                <p class="text-xs text-gray-400">Enter Secret 4-digit PIN to manage products.</p>
+                
+                <div class="max-w-xs mx-auto space-y-3">
+                    <input type="password" id="adminPinInput" maxlength="4" placeholder="Enter PIN (5911)" class="w-full bg-wolf-black border border-wolf-border text-center text-2xl font-mono tracking-widest p-3 rounded-xl text-white focus:outline-none focus:border-wolf-red">
+                    <button onclick="verifyAdminPin()" class="w-full py-3 bg-wolf-red hover:bg-red-700 font-bold text-white rounded-xl text-xs uppercase tracking-wider">
+                        Unlock Admin Panel
+                    </button>
+                    <p id="pinError" class="text-xs text-red-500 hidden">Incorrect Security PIN! Try again.</p>
+                </div>
+            </div>
+
+            <!-- Step 2: Product Management (Visible after correct PIN) -->
+            <div id="adminContent" class="hidden space-y-6">
+                <div class="flex justify-between items-center border-b border-wolf-border pb-4">
+                    <h3 class="font-title text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-sliders text-wolf-red"></i> Product Manager
+                    </h3>
+                    <span class="text-xs bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full border border-emerald-500/30 font-semibold">Authorized</span>
+                </div>
+
+                <!-- Add/Edit Form -->
+                <form id="productForm" onsubmit="handleProductSubmit(event)" class="space-y-4 bg-wolf-black/50 p-4 rounded-2xl border border-wolf-border">
+                    <h4 id="formTitle" class="text-xs font-bold text-wolf-red uppercase tracking-wider">Add New Product</h4>
+                    <input type="hidden" id="editProductId" value="">
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <input type="text" id="pName" placeholder="Product Title" required class="bg-wolf-black border border-wolf-border p-2.5 rounded-xl text-xs text-white focus:outline-none focus:border-wolf-red">
+                        <input type="number" id="pPrice" placeholder="Price (₹)" required class="bg-wolf-black border border-wolf-border p-2.5 rounded-xl text-xs text-white focus:outline-none focus:border-wolf-red">
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <select id="pCategory" required class="bg-wolf-black border border-wolf-border p-2.5 rounded-xl text-xs text-white focus:outline-none focus:border-wolf-red">
+                            <option value="T-Shirts">T-Shirts</option>
+                            <option value="Hoodies">Hoodies</option>
+                            <option value="Uniforms">Uniforms</option>
+                        </select>
+                        <input type="url" id="pImg" placeholder="Image URL (Unsplash or direct)" class="bg-wolf-black border border-wolf-border p-2.5 rounded-xl text-xs text-white focus:outline-none focus:border-wolf-red">
+                    </div>
+
+                    <textarea id="pDesc" placeholder="Product Details / Material info" rows="2" class="w-full bg-wolf-black border border-wolf-border p-2.5 rounded-xl text-xs text-white focus:outline-none focus:border-wolf-red"></textarea>
+
+                    <div class="flex gap-2">
+                        <button type="submit" class="flex-1 py-2.5 bg-wolf-red hover:bg-red-700 text-white font-bold text-xs uppercase rounded-xl transition-all">Save Product</button>
+                        <button type="button" onclick="resetForm()" class="px-4 py-2.5 bg-wolf-card border border-wolf-border text-gray-300 text-xs rounded-xl">Cancel</button>
+                    </div>
+                </form>
+
+                <!-- Existing Products List -->
+                <div class="space-y-3">
+                    <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider">Current Inventory Items</h4>
+                    <div id="adminProductList" class="space-y-2 max-h-60 overflow-y-auto pr-1">
+                        <!-- Dynamic Admin List -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Set dynamic current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Default Initial Products
+        const initialProducts = [
+            {
+                id: '1',
+                name: 'Custom DTF Printed Oversized Tee',
+                price: 399,
+                category: 'T-Shirts',
+                image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500&auto=format&fit=crop&q=60',
+                description: '100% Premium 240 GSM Cotton with high definition custom graphics print.'
+            },
+            {
+                id: '2',
+                name: 'WOLFKIN Heavyweight Winter Hoodie',
+                price: 799,
+                category: 'Hoodies',
+                image: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=500&auto=format&fit=crop&q=60',
+                description: 'Fleece-lined warm hoodie custom logo print or embroidery on chest.'
+            },
+            {
+                id: '3',
+                name: 'Corporate Collar Polo T-Shirt',
+                price: 299,
+                category: 'T-Shirts',
+                image: 'https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=500&auto=format&fit=crop&q=60',
+                description: 'Durable pique cotton corporate shirt with custom business logo.'
+            },
+            {
+                id: '4',
+                name: 'Hospital / College Staff Uniform',
+                price: 599,
+                category: 'Uniforms',
+                image: 'https://images.unsplash.com/photo-1626150986161-0b5c1926c04f?w=500&auto=format&fit=crop&q=60',
+                description: 'Tailored comfortable uniforms with embroidered chest badge/name.'
+            }
+        ];
+
+        // Load Products from LocalStorage or initialize default
+        function getProducts() {
+            const stored = localStorage.getItem('wolfkin_products');
+            if (stored) {
+                try {
+                    return JSON.parse(stored);
+                } catch(e) {
+                    return initialProducts;
+                }
+            }
+            localStorage.setItem('wolfkin_products', JSON.stringify(initialProducts));
+            return initialProducts;
+        }
+
+        function saveProducts(products) {
+            localStorage.setItem('wolfkin_products', JSON.stringify(products));
+            renderProducts();
+            renderAdminProducts();
+        }
+
+        let cart = [];
+        let activeCategory = 'All';
+
+        // Render Product Catalog for Customers
+        function renderProducts() {
+            const grid = document.getElementById('productGrid');
+            const products = getProducts();
+            const filtered = activeCategory === 'All' ? products : products.filter(p => p.category === activeCategory);
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-500">No products available in this category.</div>`;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(p => `
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between group transition-all duration-300 hover:border-wolf-red/60">
+                    <div class="relative overflow-hidden h-52 bg-wolf-black">
+                        <img src="${p.image || 'https://placehold.co/600x400/12141d/FFFFFF?text=WOLFKIN+Apparel'}" 
+                             alt="${p.name}" 
+                             onerror="this.src='https://placehold.co/600x400/12141d/FFFFFF?text=WOLFKIN+Apparel'"
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-90 group-hover:opacity-100" />
+                        <span class="absolute top-3 right-3 bg-wolf-black/80 backdrop-blur-md text-wolf-red text-[10px] font-bold px-2.5 py-1 rounded-full border border-wolf-border uppercase">
+                            ${p.category}
+                        </span>
+                    </div>
+
+                    <div class="p-5 flex-grow flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="font-bold text-white text-base leading-snug">${p.name}</h3>
+                            <p class="text-xs text-gray-400 mt-1 line-clamp-2">${p.description || 'Custom print ready apparel.'}</p>
+                        </div>
+
+                        <div class="space-y-3 pt-2">
+                            <!-- Size Selector -->
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-gray-400">Select Size:</span>
+                                <select id="size-${p.id}" class="bg-wolf-black border border-wolf-border text-white text-xs rounded-lg px-2 py-1 focus:outline-none focus:border-wolf-red">
+                                    <option value="S">S</option>
+                                    <option value="M" selected>M</option>
+                                    <option value="L">L</option>
+                                    <option value="XL">XL</option>
+                                    <option value="XXL">XXL</option>
+                                </select>
+                            </div>
+
+                            <div class="flex items-center justify-between pt-2 border-t border-wolf-border/60">
+                                <div>
+                                    <span class="text-[10px] text-gray-400 uppercase block">Price</span>
+                                    <span class="font-title font-black text-xl text-white">₹${p.price}</span>
+                                </div>
+                                <button onclick="addToCart('${p.id}')" class="px-4 py-2.5 bg-wolf-red hover:bg-red-700 text-white rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shadow-md shadow-wolf-red/20">
+                                    <i class="fa-solid fa-cart-plus"></i> Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter Category
+        function filterCategory(cat) {
+            activeCategory = cat;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if (btn.textContent.trim() === cat) {
+                    btn.className = "filter-btn active bg-wolf-red text-white text-xs font-semibold px-4 py-2 rounded-xl transition-all";
+                } else {
+                    btn.className = "filter-btn bg-wolf-card border border-wolf-border text-gray-300 hover:text-white text-xs font-semibold px-4 py-2 rounded-xl transition-all";
+                }
+            });
+            renderProducts();
+        }
+
+        // Cart Actions
+        function addToCart(productId) {
+            const products = getProducts();
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            const sizeSelect = document.getElementById(`size-${productId}`);
+            const size = sizeSelect ? sizeSelect.value : 'M';
+
+            const existingIndex = cart.findIndex(item => item.id === productId && item.size === size);
+            if (existingIndex > -1) {
+                cart[existingIndex].qty += 1;
+            } else {
+                cart.push({ ...product, size: size, qty: 1 });
+            }
+
+            updateCartUI();
+            toggleCart(true);
+        }
+
+        function updateCartUI() {
+            const countEl = document.getElementById('cartCount');
+            const container = document.getElementById('cartItemsContainer');
+            const totalEl = document.getElementById('cartTotal');
+
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            countEl.textContent = totalItems;
+            totalEl.textContent = `₹${totalPrice}`;
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 text-gray-500">
+                        <i class="fa-solid fa-basket-shopping text-3xl mb-2"></i>
+                        <p class="text-sm">Your cart is currently empty.</p>
+                    </div>`;
+                return;
+            }
+
+            container.innerHTML = cart.map((item, index) => `
+                <div class="flex items-center justify-between bg-wolf-black/60 p-3 rounded-xl border border-wolf-border">
+                    <div class="flex items-center gap-3">
+                        <img src="${item.image}" alt="${item.name}" class="w-12 h-12 object-cover rounded-lg bg-wolf-black border border-wolf-border" onerror="this.src='https://placehold.co/100?text=Apparel'">
+                        <div>
+                            <h4 class="text-xs font-bold text-white">${item.name}</h4>
+                            <p class="text-[10px] text-gray-400">Size: <strong class="text-wolf-red">${item.size}</strong> | ₹${item.price} each</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="changeCartQty(${index}, -1)" class="w-6 h-6 rounded bg-wolf-card border border-wolf-border text-white text-xs flex items-center justify-center">-</button>
+                        <span class="text-xs font-bold text-white px-1">${item.qty}</span>
+                        <button onclick="changeCartQty(${index}, 1)" class="w-6 h-6 rounded bg-wolf-card border border-wolf-border text-white text-xs flex items-center justify-center">+</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function changeCartQty(index, delta) {
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        function toggleCart(forceOpen = false) {
+            const modal = document.getElementById('cartModal');
+            if (forceOpen) {
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.toggle('hidden');
+            }
+        }
+
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                alert("Your cart is empty. Please add items to order.");
+                return;
+            }
+
+            let msg = "Hello WOLFKIN Showroom, I would like to place an order:%0A%0A";
+            let grandTotal = 0;
+
+            cart.forEach((item, i) => {
+                const sub = item.price * item.qty;
+                grandTotal += sub;
+                msg += `${i+1}. *${item.name}*%0A   - Size: ${item.size}%0A   - Quantity: ${item.qty} pcs%0A   - Price: ₹${sub}%0A%0A`;
+            });
+
+            msg += `*Estimated Grand Total: ₹${grandTotal}*%0A%0A`;
+            msg += "Please confirm availability and custom printing details.";
+
+            window.open(`https://api.whatsapp.com/send?phone=919278373472&text=${msg}`, '_blank');
+        }
+
+        // PRICE ESTIMATOR LOGIC
+        function calculateEstimate() {
+            const garmentPrice = parseFloat(document.getElementById('calcGarment').value);
+            const methodCost = parseFloat(document.getElementById('calcMethod').value);
+            const sideMultiplier = parseFloat(document.getElementById('calcSides').value);
+            const qty = parseInt(document.getElementById('calcQty').value);
+
+            document.getElementById('qtyVal').textContent = `${qty} Pcs`;
+
+            const unitCost = Math.round((garmentPrice + (methodCost * sideMultiplier)));
+            const totalCost = unitCost * qty;
+
+            document.getElementById('totalEstimate').innerHTML = `₹${totalCost.toLocaleString('en-IN')} <span class="text-xs font-normal text-gray-400">(₹${unitCost}/pc)</span>`;
+        }
+
+        function sendEstimateToWhatsApp() {
+            const garmentText = document.getElementById('calcGarment').options[document.getElementById('calcGarment').selectedIndex].text;
+            const methodText = document.getElementById('calcMethod').options[document.getElementById('calcMethod').selectedIndex].text;
+            const sidesText = document.getElementById('calcSides').options[document.getElementById('calcSides').selectedIndex].text;
+            const qty = document.getElementById('calcQty').value;
+            const totalText = document.getElementById('totalEstimate').innerText;
+
+            let text = `Hello WOLFKIN,%0A%0AI need a custom printing order quote for:%0A- *Garment:* ${garmentText}%0A- *Method:* ${methodText}%0A- *Print Sides:* ${sidesText}%0A- *Quantity:* ${qty} Pcs%0A- *Calculated Total:* ${totalText}%0A%0APlease let me know how to send my design files.`;
+
+            window.open(`https://api.whatsapp.com/send?phone=919278373472&text=${text}`, '_blank');
+        }
+
+        // PRICE ESTIMATOR LOGIC
+        function calculateEstimate() {
+            const garmentPrice = parseFloat(document.getElementById('calcGarment').value);
+            const methodCost = parseFloat(document.getElementById('calcMethod').value);
+            const sideMultiplier = parseFloat(document.getElementById('calcSides').value);
+            const qty = parseInt(document.getElementById('calcQty').value);
+
+            document.getElementById('qtyVal').textContent = `${qty} Pcs`;
+
+            const unitCost = Math.round((garmentPrice + (methodCost * sideMultiplier)));
+            const totalCost = unitCost * qty;
+
+            document.getElementById('totalEstimate').innerHTML = `₹${totalCost.toLocaleString('en-IN')} <span class="text-xs font-normal text-gray-400">(₹${unitCost}/pc)</span>`;
+        }
+
+        function sendEstimateToWhatsApp() {
+            const garmentText = document.getElementById('calcGarment').options[document.getElementById('calcGarment').selectedIndex].text;
+            const methodText = document.getElementById('calcMethod').options[document.getElementById('calcMethod').selectedIndex].text;
+            const sidesText = document.getElementById('calcSides').options[document.getElementById('calcSides').selectedIndex].text;
+            const qty = document.getElementById('calcQty').value;
+            const totalText = document.getElementById('totalEstimate').innerText;
+
+            let text = `Hello WOLFKIN,%0A%0AI need a custom printing order quote for:%0A- *Garment:* ${garmentText}%0A- *Method:* ${methodText}%0A- *Print Sides:* ${sidesText}%0A- *Quantity:* ${qty} Pcs%0A- *Calculated Total:* ${totalText}%0A%0APlease let me know how to send my design files.`;
+
+            window.open(`https://wa.me/919278373472?text=${text}`, '_blank');
+        }
+
+        // ADMIN PANEL LOGIC (PIN: 5911)
+        function openAdminModal() {
+            document.getElementById('adminModal').classList.remove('hidden');
+        }
+
+        function closeAdminModal() {
+            document.getElementById('adminModal').classList.add('hidden');
+        }
+
+        function verifyAdminPin() {
+            const inputPin = document.getElementById('adminPinInput').value.trim();
+            const err = document.getElementById('pinError');
+            
+            if (inputPin === "5911") {
+                err.classList.add('hidden');
+                document.getElementById('adminAuthBox').classList.add('hidden');
+                document.getElementById('adminContent').classList.remove('hidden');
+                renderAdminProducts();
+            } else {
+                err.classList.remove('hidden');
+            }
+        }
+
+        function renderAdminProducts() {
+            const list = document.getElementById('adminProductList');
+            const products = getProducts();
+
+            list.innerHTML = products.map(p => `
+                <div class="flex items-center justify-between p-2.5 rounded-xl bg-wolf-black border border-wolf-border text-xs">
+                    <div class="flex items-center gap-3 truncate">
+                        <img src="${p.image}" class="w-8 h-8 rounded object-cover bg-wolf-card" onerror="this.src='https://placehold.co/100?text=Apparel'">
+                        <div class="truncate">
+                            <span class="font-bold text-white block truncate">${p.name}</span>
+                            <span class="text-gray-400">₹${p.price} | ${p.category}</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1.5 shrink-0">
+                        <button onclick="editProduct('${p.id}')" class="px-2.5 py-1 rounded bg-blue-600/20 text-blue-400 border border-blue-500/30 font-semibold hover:bg-blue-600 hover:text-white transition-all">Edit</button>
+                        <button onclick="deleteProduct('${p.id}')" class="px-2.5 py-1 rounded bg-red-600/20 text-red-400 border border-red-500/30 font-semibold hover:bg-red-600 hover:text-white transition-all">Delete</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function handleProductSubmit(e) {
+            e.preventDefault();
+            const id = document.getElementById('editProductId').value;
+            const name = document.getElementById('pName').value.trim();
+            const price = parseFloat(document.getElementById('pPrice').value);
+            const category = document.getElementById('pCategory').value;
+            const image = document.getElementById('pImg').value.trim() || 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500&auto=format&fit=crop&q=60';
+            const description = document.getElementById('pDesc').value.trim();
+
+            let products = getProducts();
+
+            if (id) {
+                // Edit mode
+                products = products.map(p => p.id === id ? { id, name, price, category, image, description } : p);
+            } else {
+                // Create mode
+                const newProduct = {
+                    id: Date.now().toString(),
+                    name,
+                    price,
+                    category,
+                    image,
+                    description
+                };
+                products.push(newProduct);
+            }
+
+            saveProducts(products);
+            resetForm();
+        }
+
+        function editProduct(id) {
+            const products = getProducts();
+            const p = products.find(prod => prod.id === id);
+            if (!p) return;
+
+            document.getElementById('editProductId').value = p.id;
+            document.getElementById('pName').value = p.name;
+            document.getElementById('pPrice').value = p.price;
+            document.getElementById('pCategory').value = p.category;
+            document.getElementById('pImg').value = p.image;
+            document.getElementById('pDesc').value = p.description || '';
+            document.getElementById('formTitle').textContent = "Edit Product Details";
+        }
+
+        function deleteProduct(id) {
+            if (confirm("Are you sure you want to remove this product?")) {
+                let products = getProducts();
+                products = products.filter(p => p.id !== id);
+                saveProducts(products);
+            }
+        }
+
+        function resetForm() {
+            document.getElementById('productForm').reset();
+            document.getElementById('editProductId').value = '';
+            document.getElementById('formTitle').textContent = "Add New Product";
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Initial Load
+        window.onload = function() {
+            renderProducts();
+            calculateEstimate();
+        };
+    </script>
+</body>
+</html>
